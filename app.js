@@ -6,6 +6,7 @@ var express = require("express");
 var session = require("express-session");
 var base64url = require("base64url");
 var secureRandom = require("secure-random");
+const cors = require("cors");
 
 //////////////// Verifiable Credential SDK
 var {
@@ -55,6 +56,8 @@ app.use(
     store: sessionStore,
   })
 );
+
+app.use(cors());
 
 // Serve index.html as the home page
 app.get("/", function (req, res) {
