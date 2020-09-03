@@ -38,7 +38,7 @@ const crypto = new CryptoBuilder(did, signingKeyReference).build();
 //////////// Main Express server function
 // Note: You'll want to update the hostname and port values for your setup.
 const app = express();
-const port = 8081;
+const port = process.env.PORT || 8081;
 
 // Serve static files out of the /public directory
 app.use(express.static("public"));
