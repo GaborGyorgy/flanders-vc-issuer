@@ -85,8 +85,6 @@ app.get("/issue-request", async (req, res) => {
   // Cache the issue request on the server
   req.session.issueRequest = await requestBuilder.build().create();
 
-  console.log("req.hostname", req.hostname);
-
   // Return a reference to the issue request that can be encoded as a QR code
   var requestUri = encodeURIComponent(
     `https://${req.hostname}/issue-request.jwt?id=${req.session.id}`
